@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html, body{
+            width: 100%;
+            height: 100%;
+        }
+        .bg{
+            width: 100%;
+            height: 100%;
+            background: url('xx.png');
+            opacity: 0;
+        }
+        #a, #b, #tutorial{
+            position:absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg"></div>
+    <canvas id="a" width="1100" height="800"></canvas>
+    <canvas id="b" width="1100" height="800"></canvas>
+    <canvas id="tutorial" width="1100" height="800"></canvas>
+</body>
+<script>
+    var bg = document.getElementsByClassName('bg')[0]
+    var canvas = document.getElementById('a');
+    var a = canvas.getContext('2d');
+    a.beginPath();
+    a.arc(150, 250, 200, -Math.PI * 0.2 - Math.PI / 2, Math.PI * 0.2 - Math.PI / 2)
+    a.arc(390, -70, 200 ,Math.PI * 0.2 + Math.PI / 2, -Math.PI * 0.2 + Math.PI / 2, true)
+    a.arc(630, 250, 200, -Math.PI * 0.2 - Math.PI / 2, Math.PI * 0.2 - Math.PI / 2)
+    a.arc(870, -70, 200 ,Math.PI * 0.2 + Math.PI / 2, -Math.PI * 0.2 + Math.PI / 2, true)
+    a.lineTo(1000,300);
+    a.arc(882, 140, 200 ,-Math.PI * 0.2 + Math.PI / 2, Math.PI * 0.2 + Math.PI / 2)
+    a.arc(642, 460, 200, Math.PI * 0.2 - Math.PI / 2, -Math.PI * 0.2 - Math.PI / 2, true)
+    a.arc(402, 140, 200 ,-Math.PI * 0.2 + Math.PI / 2, Math.PI * 0.2 + Math.PI / 2)
+    a.arc(162, 460, 200, Math.PI * 0.2 - Math.PI / 2, -Math.PI * 0.2 - Math.PI / 2, true)
+    a.closePath();
+    a.fillStyle = '#fff'
+    a.lineWidth = 10
+    a.fill();
+
+    var canvas = document.getElementById('b');
+    var b = canvas.getContext('2d');
+
+    var canvas = document.getElementById('tutorial');
+    var ctx = canvas.getContext('2d');
+    ctx.beginPath();
+    ctx.arc(150, 250, 200, -Math.PI * 0.2 - Math.PI / 2, Math.PI * 0.2 - Math.PI / 2)
+    ctx.arc(390, -70, 200 ,Math.PI * 0.2 + Math.PI / 2, -Math.PI * 0.2 + Math.PI / 2, true)
+    ctx.arc(630, 250, 200, -Math.PI * 0.2 - Math.PI / 2, Math.PI * 0.2 - Math.PI / 2)
+    ctx.arc(870, -70, 200 ,Math.PI * 0.2 + Math.PI / 2, -Math.PI * 0.2 + Math.PI / 2, true)
+    ctx.lineTo(1000,300);
+    ctx.arc(882, 140, 200 ,-Math.PI * 0.2 + Math.PI / 2, Math.PI * 0.2 + Math.PI / 2)
+    ctx.arc(642, 460, 200, Math.PI * 0.2 - Math.PI / 2, -Math.PI * 0.2 - Math.PI / 2, true)
+    ctx.arc(402, 140, 200 ,-Math.PI * 0.2 + Math.PI / 2, Math.PI * 0.2 + Math.PI / 2)
+    ctx.arc(162, 460, 200, Math.PI * 0.2 - Math.PI / 2, -Math.PI * 0.2 - Math.PI / 2, true)
+    ctx.closePath();
+    ctx.lineWidth = 10
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(160,50);
+    ctx.lineTo(180,260);
+    ctx.moveTo(300,110);
+    ctx.lineTo(320,320);
+    ctx.moveTo(440,120);
+    ctx.lineTo(460,330);
+    ctx.moveTo(580,60);
+    ctx.lineTo(600,265);
+    ctx.moveTo(720,70);
+    ctx.lineTo(740,285);
+    ctx.moveTo(860,130);
+    ctx.lineTo(880,340);
+    ctx.lineWidth = 10
+    ctx.stroke();
+
+    var sum = 0
+    var timer = setInterval(function () {
+        sum++
+        if (sum <= 20) {
+            ctx.beginPath();
+            ctx.arc(170, 420, 300, -Math.PI * 0.6 + sum * Math.PI * 0.008,  -Math.PI * 0.6 + (sum + 1) * Math.PI * 0.008)
+            ctx.lineWidth = 20
+            ctx.stroke();
+        } else if (sum <= 40) {
+            ctx.beginPath();
+            ctx.arc(150, 500, 300, -Math.PI * 0.62 + (sum - 21) * Math.PI * 0.004, -Math.PI * 0.62 + (sum - 20) * Math.PI * 0.004)
+            ctx.lineWidth = 20
+            ctx.stroke();
+        } else if (sum <= 60) {
+            ctx.beginPath();
+            ctx.arc(200, 500, 300, -Math.PI * 0.56 + (sum - 21) * Math.PI * 0.0045, -Math.PI * 0.56 + (sum - 20) * Math.PI * 0.0045)
+            ctx.lineWidth = 20
+            ctx.stroke();
+        } else if (sum <= 80) {
+            ctx.beginPath();
+            ctx.moveTo(375 + (sum - 61) * 0.25,190 + (sum - 61) * 3.5);
+            ctx.lineTo(375 + (sum - 60) * 0.25,190 + (sum - 60) * 3.5);
+            ctx.lineWidth = 20
+            ctx.stroke();
+        } else if (sum <= 100) {
+            ctx.beginPath();
+            ctx.moveTo(509 + (sum - 81) * 0.5,90 + (sum - 81) * 5);
+            ctx.lineTo(509 + (sum - 80) * 0.5,90 + (sum - 80) * 5);
+            ctx.lineWidth = 5
+            ctx.stroke();
+        } else if (sum <= 120) {
+            ctx.beginPath();
+            ctx.moveTo(519 + (sum - 101) * 3.5,190 + -(sum - 101));
+            ctx.lineTo(519 + (sum - 100) * 3.5,190 + -(sum - 100));
+            ctx.lineWidth = 5
+            ctx.stroke();
+        } else if (sum === 140) {
+            ctx.beginPath();
+            ctx.moveTo(578, 58);
+            ctx.lineTo(509,92);
+            ctx.lineTo(519,190);
+            ctx.lineTo(589,170);
+            ctx.closePath();
+            ctx.lineWidth = 5
+            ctx.fill();
+        } else if (sum <= 170 && sum >= 150) {
+            ctx.beginPath();
+            ctx.moveTo(660 + (sum - 151) * 0.25,120 + (sum - 151) * 3.5);
+            ctx.lineTo(660 + (sum - 150) * 0.25,120 + (sum - 150) * 3.5);
+            ctx.lineWidth = 20
+            ctx.stroke();
+        } else if (sum <= 190 && sum >= 170) {
+            ctx.beginPath();
+            ctx.moveTo(793 + (sum - 171) * 0.25,114 + (sum - 171) * 4);
+            ctx.lineTo(793 + (sum - 170) * 0.25,114 + (sum - 170) * 4);
+            ctx.lineWidth = 20
+            ctx.stroke();
+        } else if (sum <= 210 && sum >= 190) {
+            ctx.beginPath();
+            ctx.moveTo(735 + (sum - 191) * 3.1,205 + (sum - 191) * 5.6);
+            ctx.lineTo(735 + (sum - 190) * 3.1,205 + (sum - 190) * 5.6);
+            ctx.lineWidth = 5
+            ctx.stroke();
+        } else if (sum === 230) {
+            ctx.beginPath();
+            ctx.moveTo(735, 205);
+            ctx.lineTo(797,317);
+            ctx.lineTo(739,282);
+            ctx.lineWidth = 5
+            ctx.fill();
+        } else if (sum <= 270 && sum >= 250) {
+            ctx.beginPath();
+            ctx.moveTo(867 + (sum - 251) * -2.25, 242 + (sum - 251) * 4.4);
+            ctx.lineTo(867 + (sum - 250) * -2.25, 242 + (sum - 250) * 4.4);
+            ctx.lineWidth = 5
+            ctx.stroke();
+        } else if (sum === 290) {
+            ctx.beginPath();
+            ctx.moveTo(867, 242);
+            ctx.lineTo(821,330);
+            ctx.lineTo(879,337);
+            ctx.lineWidth = 5
+            ctx.fill();
+        } else if (sum >= 310 && sum <= 330) {
+            ctx.beginPath();
+            ctx.arc(882, -110, 300, Math.PI * 0.385 + (sum - 310) * Math.PI * 0.004, Math.PI * 0.385 + (sum - 311) * Math.PI * 0.004, true)
+            ctx.lineWidth = 20
+            ctx.stroke();
+        } else if (sum >= 330 && sum <= 350) {
+            ctx.beginPath();
+            ctx.arc(882, -40, 300, Math.PI * 0.378 + (sum - 330) * Math.PI * 0.004, Math.PI * 0.378 + (sum - 331) * Math.PI * 0.004, true)
+            ctx.lineWidth = 20
+            ctx.stroke();
+        } else if (sum >= 350 && sum <= 550) {
+            bg.style.opacity = (sum - 351) * 0.005
+        } else if (sum >= 550 && sum <= 950) {
+            var grd = b.createLinearGradient(0, 0, 1100, 0);
+            grd.addColorStop(0, "#fc00ff");
+            grd.addColorStop(1, "#00dbde"); 
+
+            b.beginPath();
+            b.arc(150, 250, 200, -Math.PI * 0.2 - Math.PI / 2, Math.PI * 0.2 - Math.PI / 2)
+            b.arc(390, -70, 200 ,Math.PI * 0.2 + Math.PI / 2, -Math.PI * 0.2 + Math.PI / 2, true)
+            b.arc(630, 250, 200, -Math.PI * 0.2 - Math.PI / 2, Math.PI * 0.2 - Math.PI / 2)
+            b.arc(870, -70, 200 ,Math.PI * 0.2 + Math.PI / 2, -Math.PI * 0.2 + Math.PI / 2, true)
+            b.lineTo(1000,300);
+            b.arc(882, 140, 200 ,-Math.PI * 0.2 + Math.PI / 2, Math.PI * 0.2 + Math.PI / 2)
+            b.arc(642, 460, 200, Math.PI * 0.2 - Math.PI / 2, -Math.PI * 0.2 - Math.PI / 2, true)
+            b.arc(402, 140, 200 ,-Math.PI * 0.2 + Math.PI / 2, Math.PI * 0.2 + Math.PI / 2)
+            b.arc(162, 460, 200, Math.PI * 0.2 - Math.PI / 2, -Math.PI * 0.2 - Math.PI / 2, true)
+            b.closePath();
+            b.fillStyle = grd
+            b.globalAlpha = (sum - 551) * 0.0025
+            b.lineWidth = 10
+            b.fill();
+        }
+    }, 20)
+    canvas.onclick = function (e) {
+        console.log(1111)
+        console.log(e.offsetX)
+        console.log(e.offsetY)
+    }
+</script>
+</html>
