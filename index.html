@@ -178,9 +178,9 @@
             ctx.arc(882, -40, 300, Math.PI * 0.378 + (sum - 330) * Math.PI * 0.004, Math.PI * 0.378 + (sum - 331) * Math.PI * 0.004, true)
             ctx.lineWidth = 20
             ctx.stroke();
-        } else if (sum >= 350 && sum <= 550) {
-            bg.style.opacity = (sum - 351) * 0.005
-        } else if (sum >= 550 && sum <= 950) {
+        } else if (sum >= 350 && sum <= 450) {
+            bg.style.opacity = (sum - 351) * 0.01
+        } else if (sum >= 450 && sum <= 650) {
             var grd = b.createLinearGradient(0, 0, 1100, 0);
             grd.addColorStop(0, "#fc00ff");
             grd.addColorStop(1, "#00dbde"); 
@@ -197,15 +197,10 @@
             b.arc(162, 460, 200, Math.PI * 0.2 - Math.PI / 2, -Math.PI * 0.2 - Math.PI / 2, true)
             b.closePath();
             b.fillStyle = grd
-            b.globalAlpha = (sum - 551) * 0.0025
+            b.globalAlpha = (sum - 451) * 0.005
             b.lineWidth = 10
             b.fill();
         }
     }, 20)
-    canvas.onclick = function (e) {
-        console.log(1111)
-        console.log(e.offsetX)
-        console.log(e.offsetY)
-    }
 </script>
 </html>
